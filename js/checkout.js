@@ -20,8 +20,8 @@ function remove_item(event)
             {
                 cart_json = JSON.stringify(cart);
                 Cookies.set(`cart_content`, cart_json);
-                break;
             }
+            break;
         }
     }
     
