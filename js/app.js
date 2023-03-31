@@ -17,7 +17,29 @@ let products = [
         name: `Remy Accent Chair`,
         price: 399,
         description: `Add a pop of color to any space with this chic accent chair. The Remy chair features a bold geometric pattern in shades of yellow, grey, and white. The compact size and comfortable seat make it perfect for a reading nook, bedroom, or small living room.`,
-
+        id: 003,
+        image_url: `/images/accentchair.jpg`
     }
 ];
+
+let product_section = document.querySelector(`#products`);
+
+//Injecting the products into the page based on the data source
+for(let i = 0; i < products.length; i++)
+{
+    product_section.insertAdjacentHTML(`beforeend`, 
+    `<article class="product_card">
+        <img class="product_image" src="${products[i][`image_url`]}" alt="Image of ${products[i][`name`]}">
+        <h3 class="product_name">${products[i][`name`]}</h3>
+        <p class="product_price">$ ${products[i][`price`]}</p>
+        <p class="product_description">${products[i][`description`]}</p>
+        <button class="cart_button"
+        product_name="${products[i][`name`]}"
+        product_price="${products[i][`price`]}"
+        product_description="${products[i][`description`]}"
+        product_image="${products[i][`image_url`]}"
+        product_id="${products[i][`id`]}"
+        >ADD TO CART</button>
+    </article>`);
+}
 

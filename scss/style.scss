@@ -10,6 +10,7 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
+    min-height: 35vh;
 
     >p {
         width: 80%;
@@ -19,4 +20,30 @@ img {
     >img {
         border-radius: 30px;
     }
+}
+
+#products {
+    width: 90%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.product_card {
+    display: grid;
+    row-gap: 20px;
+}
+
+.product_image {
+    width: 200px;
+    border-radius: 30px;
+}
+
+.product_description {
+    width: 200px;
+}
+
+.cart_button {
+    width: 100px;
+    justify-self: center;
 }
