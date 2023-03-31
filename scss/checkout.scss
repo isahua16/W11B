@@ -4,13 +4,15 @@
 #product_selection {
     width: 90%;
     display: grid;
-    place-items: center;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    row-gap: 20px;
+    ;
 }
 
 .product_card {
     display: grid;
     row-gap: 20px;
+    place-items: center;
 }
 
 .product_image {
@@ -25,4 +27,11 @@
 .delete_button {
     width: 100px;
     justify-self: center;
+}
+
+#empty_button {
+    margin-top: 30px;
+    padding: 10px;
+    width: 200px;
+    font-size: 1.5rem;
 }
