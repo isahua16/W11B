@@ -22,6 +22,21 @@ let products = [
     }
 ];
 
+function select_product(event)
+{
+    let product = {
+        name: `${event[`target`].getAttribute(`product_name`)}`,
+        price: `${event[`target`].getAttribute(`product_price`)}`,
+        description: `${event[`target`].getAttribute(`product_description`)}`,
+        id: `${event[`target`].getAttribute(`product_id`)}`,
+        image_url: `${event[`target`].getAttribute(`product_image`)}`
+    }
+
+    cart.push(product);
+    cart_json = JSON.stringify(cart);
+    Cookies.set(`cart_content`, cart_json);
+}
+
 let product_section = document.querySelector(`#products`);
 
 //Injecting the products into the page based on the data source
@@ -43,3 +58,16 @@ for(let i = 0; i < products.length; i++)
     </article>`);
 }
 
+let cart_buttons = document.querySelectorAll(`.cart_button`);
+for(let i = 0; i < cart_buttons.length; i ++)
+{
+    cart_buttons[i].addEventListener(`click`, select_product);
+}
+
+let cart_json = Cookies.get(`cart_content`);
+let cart = [];
+
+if(cart_json !== undefined)
+{
+    cart = JSON.parse(cart_json);
+}
