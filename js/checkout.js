@@ -16,7 +16,6 @@ function remove_item(event)
 
 function empty_cart(event)
 {
-    event[`target`].remove();
     product_display.remove();
     Cookies.remove(`cart_content`);
 }
@@ -42,15 +41,14 @@ if(cart_json !== undefined)
         </article>`);
         
     }
-    product_display.insertAdjacentHTML(`afterend`, 
-    `<button id="empty_button">EMPTY CART</button>`);
-    let empty_button = document.querySelector(`#empty_button`);
-    empty_button.addEventListener(`click`, empty_cart);
 }
 else
 {
-    product_display.insertAdjacentHTML(`afterbegin`, `<h3>You have no products in your cart</h3>`)
+    product_display.insertAdjacentHTML(`beforebegin`, `<h3 style="justify-self: center;">You have no products in your cart</h3>`)
 }
+
+let empty_button = document.querySelector(`#empty_button`);
+empty_button.addEventListener(`click`, empty_cart);
 
 let delete_buttons = document.querySelectorAll(`.delete_button`)
 {
