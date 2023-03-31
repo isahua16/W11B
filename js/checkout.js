@@ -2,18 +2,30 @@
 function remove_item(event)
 {
     event[`target`][`parentElement`].remove();
-    //Look at all the elements in the cart array, and find a match based on the button's id attribute and the id key of each product object.
+    //Look at all the elements in the cart array, and find a match based on the button's id attribute and the id key of each product object. 
+    
     for(let i = 0; i < cart.length; i++)
     {
         if(event[`target`].getAttribute(`product_id`) === cart[i][`id`])
         {
-            //Remove that element from the array and reset the the new cookie, and stop the loop.
+            //Remove that element from the array.
             cart.splice(i, 1);
-            cart_json = JSON.stringify(cart);
-            Cookies.set(`cart_content`, cart_json);
-            break;
+            //If the array is empty and returns a length of zero, remove that cookie.
+            if(cart.length === 0)
+            {
+                Cookies.remove(`cart_content`);
+            }
+            //If the cart array still has elements, save them inside a cookie.
+            else
+            {
+                cart_json = JSON.stringify(cart);
+                Cookies.set(`cart_content`, cart_json);
+                break;
+            }
         }
     }
+    
+
 }
 
 //Remove the contents of the product_display html element that contains all the articles in the cart, and remove the cookie.
@@ -32,7 +44,7 @@ let product_display = document.querySelector(`#product_selection`);
 //Again, if the cookie contents is not undefined and has contents, put those elements inside cart as an array of objects.
 if(cart_json !== undefined)
 {
-    cart = JSON.parse(cart_json);
+   cart = JSON.parse(cart_json);
 
     //For every element in the cart array, insert the html of the selected products.
     for(let i = 0; i < cart.length; i++)
