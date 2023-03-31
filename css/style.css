@@ -17,4 +17,22 @@ body {
   place-items: center;
 }
 
+img {
+  width: 100%;
+}
+
+#hero {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+#hero > p {
+  width: 80%;
+  text-align: center;
+}
+#hero > img {
+  border-radius: 30px;
+}
+
 /*# sourceMappingURL=style.css.map */

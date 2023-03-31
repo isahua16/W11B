@@ -1,2 +1,22 @@
 @use "general";
 @use "header";
+
+img {
+    width: 100%;
+}
+
+#hero {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+
+    >p {
+        width: 80%;
+        text-align: center;
+    }
+
+    >img {
+        border-radius: 30px;
+    }
+}
